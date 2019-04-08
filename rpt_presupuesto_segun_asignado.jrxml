@@ -3,26 +3,12 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_presupuesto_segun_asignado" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f113d738-902a-48e8-97d8-00a8e3c56e48">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
+	<parameter name="cod_mes" class="java.lang.Integer"/>
+	<parameter name="cod_area" class="java.lang.Integer"/>
+	<parameter name="cod_subarea" class="java.lang.Integer"/>
 	<queryString language="SQL">
-		<![CDATA[select 
-m.nombre as mes
-,a.nombre as area
-,sa.nombre as subarea
-,a.codigo as cod_actividad
-,a.nombre as actividad
-,cl.nombre as clasificacion
-,r.nombre as responsable
-,pa.presupuestoaprobado as asigando
-,dpa.monto as ejecutado
-,(pa.presupuestoaprobado - dpa.monto) as saldo
-from pr_det_presupuesto_asignado dpa 
-inner join pr_presupuesto_asignado pa on dpa.cod_presupuesto_asignado = pa.codigo
-inner join pr_subarea sa on pa.cod_subarea = sa.codigo
-inner join pr_area a on sa.cod_area = a.codigo
-inner join pr_responsable r on pa.cod_responsable = r.codigo
-inner join pr_actividad ac on dpa.cod_actividad = ac.codigo
-inner join pr_mes m on pa.cod_mes = m.codigo
-inner join pr_clasificacion cl on dpa.cod_clasificacion = cl.codigo]]>
+		<![CDATA[select * from 
+rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 	</queryString>
 	<field name="mes" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="mes"/>
@@ -33,7 +19,7 @@ inner join pr_clasificacion cl on dpa.cod_clasificacion = cl.codigo]]>
 	<field name="subarea" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="subarea"/>
 	</field>
-	<field name="cod_actividad" class="java.lang.Integer">
+	<field name="cod_actividad" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="cod_actividad"/>
 	</field>
 	<field name="actividad" class="java.lang.String">
@@ -249,6 +235,18 @@ inner join pr_clasificacion cl on dpa.cod_clasificacion = cl.codigo]]>
 				</textElement>
 				<text><![CDATA[Subarea:]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="110" y="2" width="120" height="14" uuid="37947b15-74cc-49bb-9f5e-33a0c1fa6e94"/>
+				<textFieldExpression><![CDATA[( $P{cod_mes}.equals(0) ? "TODOS": $F{mes})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="21" width="120" height="14" uuid="65ab304d-4aea-43c3-8597-ff8d6c7a0640"/>
+				<textFieldExpression><![CDATA[( $P{cod_area}.equals(0) ? "TODOS": $F{area})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="41" width="120" height="14" uuid="30e6dbfe-9055-456c-8401-ad03e6207ba4"/>
+				<textFieldExpression><![CDATA[( $P{cod_subarea}.equals(0) ? "TODOS": $F{subarea})]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<detail>
