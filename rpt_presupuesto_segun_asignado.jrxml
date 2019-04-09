@@ -158,11 +158,11 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 		<groupHeader>
 			<band height="65">
 				<textField>
-					<reportElement x="80" y="1" width="100" height="16" uuid="3f946ee1-8b42-4477-bfeb-152587d04ef9"/>
+					<reportElement x="80" y="15" width="100" height="16" uuid="3f946ee1-8b42-4477-bfeb-152587d04ef9"/>
 					<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
 				</textField>
 				<staticText>
-					<reportElement x="21" y="1" width="50" height="16" uuid="1a23c66d-b50b-43d8-bb68-bbc5ba5d3540"/>
+					<reportElement x="21" y="15" width="50" height="16" uuid="1a23c66d-b50b-43d8-bb68-bbc5ba5d3540"/>
 					<textElement textAlignment="Right">
 						<font isBold="true"/>
 					</textElement>
@@ -232,7 +232,7 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 					<text><![CDATA[Saldo]]></text>
 				</staticText>
 				<line>
-					<reportElement x="0" y="30" width="752" height="1" uuid="2e220a05-59ba-4f1b-86e0-394fb001e58d"/>
+					<reportElement x="0" y="7" width="752" height="1" uuid="2e220a05-59ba-4f1b-86e0-394fb001e58d"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dotted"/>
 					</graphicElement>
@@ -250,9 +250,15 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 					</graphicElement>
 				</line>
 				<line>
-					<reportElement x="80" y="31" width="1" height="30" uuid="2258f74e-8ed4-4e26-a4d2-d1cbebff0552"/>
+					<reportElement x="80" y="41" width="1" height="20" uuid="2258f74e-8ed4-4e26-a4d2-d1cbebff0552"/>
 					<graphicElement>
 						<pen lineWidth="0.5" lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="1" y="39" width="752" height="1" uuid="a9cd8937-b4c2-4f22-b112-8b38e5d4aee4"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineStyle="Dotted"/>
 					</graphicElement>
 				</line>
 			</band>
@@ -379,31 +385,31 @@ rpt_presupuesto_segun_asignado  ($P{cod_mes},$P{cod_area},$P{cod_subarea});]]>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="242" y="-34" width="1" height="55" uuid="8d0944c2-acd2-4eb9-a67d-8c80152786b9"/>
+				<reportElement x="242" y="-24" width="1" height="45" uuid="8d0944c2-acd2-4eb9-a67d-8c80152786b9"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="376" y="-34" width="1" height="55" uuid="2f24c340-5ac1-403a-b230-ff78511423e1"/>
+				<reportElement x="376" y="-24" width="1" height="45" uuid="2f24c340-5ac1-403a-b230-ff78511423e1"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="535" y="-34" width="1" height="55" uuid="88a8e3bd-dec2-428c-b999-e0a38a0c8a27"/>
+				<reportElement x="535" y="-24" width="1" height="45" uuid="88a8e3bd-dec2-428c-b999-e0a38a0c8a27"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="606" y="-34" width="1" height="55" uuid="9e7516aa-5e33-4de8-a355-67e4202a40b8"/>
+				<reportElement x="606" y="-24" width="1" height="45" uuid="9e7516aa-5e33-4de8-a355-67e4202a40b8"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
 			</line>
 			<line>
-				<reportElement x="676" y="-34" width="1" height="55" uuid="c6daf8c7-6794-474b-a104-862419c06642"/>
+				<reportElement x="676" y="-24" width="1" height="45" uuid="c6daf8c7-6794-474b-a104-862419c06642"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineStyle="Dashed"/>
 				</graphicElement>
