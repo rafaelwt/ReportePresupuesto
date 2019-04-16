@@ -95,7 +95,10 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="165" splitType="Stretch">
+		<band height="153" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="40" width="570" height="100" uuid="9debb0d4-7864-4d60-a53e-c899b5411704"/>
+			</rectangle>
 			<staticText>
 				<reportElement x="187" y="10" width="196" height="22" uuid="9f1eab06-213f-4b04-b25c-40c4ae7d76c0"/>
 				<textElement>
@@ -104,43 +107,43 @@
 				<text><![CDATA[RENDICION DE GASTOS DIARIOS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="4" y="45" width="188" height="20" uuid="96085cd6-c33d-4170-b598-63b4c47e3a04"/>
+				<reportElement x="8" y="48" width="188" height="20" uuid="96085cd6-c33d-4170-b598-63b4c47e3a04"/>
 				<textElement>
 					<font size="12" isBold="true" isUnderline="false"/>
 				</textElement>
 				<text><![CDATA[PARÁMETROS:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="73" width="75" height="15" uuid="a7ee1257-f585-4e2d-af8b-2ff5dfed1a0e"/>
+				<reportElement x="7" y="76" width="75" height="15" uuid="a7ee1257-f585-4e2d-af8b-2ff5dfed1a0e"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Caja:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="93" width="75" height="15" uuid="2975c3a1-1b9f-4d9f-9e75-59aeeb9f5900"/>
+				<reportElement x="7" y="96" width="75" height="15" uuid="2975c3a1-1b9f-4d9f-9e75-59aeeb9f5900"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Inicial:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="113" width="75" height="15" uuid="6534036d-f712-4a66-9f0e-5b65f3eadac5"/>
+				<reportElement x="7" y="116" width="75" height="15" uuid="6534036d-f712-4a66-9f0e-5b65f3eadac5"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha Final:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="85" y="93" width="195" height="14" uuid="3efddcdb-7931-4492-a540-705f60e4768c"/>
+				<reportElement x="89" y="96" width="195" height="14" uuid="3efddcdb-7931-4492-a540-705f60e4768c"/>
 				<textFieldExpression><![CDATA[$P{fec_ini}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="85" y="113" width="195" height="14" uuid="20e99f02-d3c6-4d62-b1ef-10eb345c577e"/>
+				<reportElement x="89" y="116" width="195" height="14" uuid="20e99f02-d3c6-4d62-b1ef-10eb345c577e"/>
 				<textFieldExpression><![CDATA[$P{fec_fin}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="80" y="73" width="200" height="15" uuid="ddd04ba8-05bb-4987-bb7e-3ca5746e35dc"/>
+				<reportElement x="84" y="76" width="200" height="15" uuid="ddd04ba8-05bb-4987-bb7e-3ca5746e35dc"/>
 				<textFieldExpression><![CDATA[$F{nom_caja}]]></textFieldExpression>
 			</textField>
 		</band>
