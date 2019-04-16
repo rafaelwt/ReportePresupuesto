@@ -35,15 +35,9 @@
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
 		<parameter name="fec_ini" class="java.lang.String"/>
 		<parameter name="fe_fin" class="java.lang.String"/>
+		<parameter name="cod_caja" class="java.lang.String"/>
 		<queryString language="SQL">
-			<![CDATA[select 
-g.detalle
-,g.montobs
-,g.montous
-,to_char(g.fechadia,'DD/MM/YYYY') as fechadia
-,g.tipodocumento
-,g.reparto
-from pr_presupuesto_gasto g]]>
+			<![CDATA[select * from rpt_gastos_diarios($P{fec_ini},$P{fe_fin},$P{cod_caja})]]>
 		</queryString>
 		<field name="detalle" class="java.lang.String">
 			<property name="com.jaspersoft.studio.field.label" value="detalle"/>
@@ -72,8 +66,9 @@ from pr_presupuesto_gasto g]]>
 	</subDataset>
 	<parameter name="fec_ini" class="java.lang.String"/>
 	<parameter name="fec_fin" class="java.lang.String"/>
+	<parameter name="cod_caja" class="java.lang.String"/>
 	<queryString language="SQL">
-		<![CDATA[select * from rpt_gastos_diarios ($P{fec_ini},$P{fec_fin})]]>
+		<![CDATA[select * from rpt_gastos_diarios($P{fec_ini},$P{fec_fin},$P{cod_caja})]]>
 	</queryString>
 	<field name="detalle" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="detalle"/>
@@ -84,7 +79,7 @@ from pr_presupuesto_gasto g]]>
 	<field name="montous" class="java.math.BigDecimal">
 		<property name="com.jaspersoft.studio.field.label" value="montous"/>
 	</field>
-	<field name="fechadia" class="java.sql.Date">
+	<field name="fechadia" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="fechadia"/>
 	</field>
 	<field name="tipodocumento" class="java.lang.String">
@@ -93,18 +88,61 @@ from pr_presupuesto_gasto g]]>
 	<field name="reparto" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="reparto"/>
 	</field>
+	<field name="nom_caja" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nom_caja"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="37" splitType="Stretch">
+		<band height="165" splitType="Stretch">
 			<staticText>
-				<reportElement x="4" y="8" width="196" height="22" uuid="9f1eab06-213f-4b04-b25c-40c4ae7d76c0"/>
+				<reportElement x="187" y="10" width="196" height="22" uuid="9f1eab06-213f-4b04-b25c-40c4ae7d76c0"/>
 				<textElement>
-					<font isBold="true"/>
+					<font size="15" isBold="true" isUnderline="true"/>
 				</textElement>
 				<text><![CDATA[RENDICION DE GASTOS DIARIOS]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="4" y="45" width="188" height="20" uuid="96085cd6-c33d-4170-b598-63b4c47e3a04"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[PARÁMETROS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="73" width="75" height="15" uuid="a7ee1257-f585-4e2d-af8b-2ff5dfed1a0e"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Caja:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="93" width="75" height="15" uuid="2975c3a1-1b9f-4d9f-9e75-59aeeb9f5900"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Inicial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="113" width="75" height="15" uuid="6534036d-f712-4a66-9f0e-5b65f3eadac5"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Final:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="93" width="195" height="14" uuid="3efddcdb-7931-4492-a540-705f60e4768c"/>
+				<textFieldExpression><![CDATA[$P{fec_ini}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="85" y="113" width="195" height="14" uuid="20e99f02-d3c6-4d62-b1ef-10eb345c577e"/>
+				<textFieldExpression><![CDATA[$P{fec_fin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="73" width="200" height="15" uuid="ddd04ba8-05bb-4987-bb7e-3ca5746e35dc"/>
+				<textFieldExpression><![CDATA[$F{nom_caja}]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -187,12 +225,15 @@ from pr_presupuesto_gasto g]]>
 					<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-					<datasetRun subDataset="DatasetGastos" uuid="ff7c1e1a-cc1d-4bb1-b5dd-152e2cfa3280">
+					<datasetRun subDataset="DatasetGastos" uuid="5aa7195f-fdec-4886-b5bf-4262ed0d8ae0">
 						<datasetParameter name="fec_ini">
 							<datasetParameterExpression><![CDATA[$P{fec_ini}]]></datasetParameterExpression>
 						</datasetParameter>
 						<datasetParameter name="fe_fin">
 							<datasetParameterExpression><![CDATA[$P{fec_fin}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="cod_caja">
+							<datasetParameterExpression><![CDATA[$P{cod_caja}]]></datasetParameterExpression>
 						</datasetParameter>
 						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 					</datasetRun>
