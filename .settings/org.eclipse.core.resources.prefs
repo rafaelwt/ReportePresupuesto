@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding/rpt_gastos_diarios.jrxml=UTF-8
+encoding/rpt_gastos_diarios_por_factura.jrxml=UTF-8
 encoding/rpt_presupuesto_por_clasificacion.jrxml=UTF-8
 encoding/rpt_presupuesto_segun_aprobado.jrxml=UTF-8
 encoding/rpt_presupuesto_segun_asignado.jrxml=UTF-8
