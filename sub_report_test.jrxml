@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="sub_report_test" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7cccb8c2-18ba-4671-bcb6-3bd134b33dae">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
+	<queryString language="SQL">
+		<![CDATA[select * from rpt_gastos_diarios_por_area_ingresos('1990-01-01','2020-01-01',0);]]>
+	</queryString>
+	<field name="nom_caja" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nom_caja"/>
+	</field>
+	<field name="monto_total_ingresos" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.label" value="monto_total_ingresos"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="87" y="0" width="100" height="30" uuid="d335e050-015f-4756-8e85-4af83514c067">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="45272c64-2270-47b1-be84-475eb50c40ac"/>
+				</reportElement>
+				<text><![CDATA[nom_caja]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="348" y="0" width="100" height="30" uuid="f8b61f2b-3c34-483c-9f7c-7869b21d249a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f04a59bd-8a02-473a-af47-2fff50edcff0"/>
+				</reportElement>
+				<text><![CDATA[monto_total_ingresos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="80" y="0" width="100" height="30" uuid="16e93fd1-1349-4930-b62d-1c8ebc34dd3f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="45272c64-2270-47b1-be84-475eb50c40ac"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nom_caja}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="100" height="30" uuid="6e846bdf-2858-4f3f-9d04-64210c819cad">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f04a59bd-8a02-473a-af47-2fff50edcff0"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{monto_total_ingresos}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
