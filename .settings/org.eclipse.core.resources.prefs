@@ -5,4 +5,5 @@ encoding/rpt_gastos_diarios_por_area_ingresos.jrxml=UTF-8
 encoding/rpt_gastos_diarios_por_factura.jrxml=UTF-8
 encoding/rpt_presupuesto_por_clasificacion.jrxml=UTF-8
 encoding/rpt_presupuesto_segun_aprobado.jrxml=UTF-8
+encoding/rpt_presupuesto_segun_aprobado_gerencial.jrxml=UTF-8
 encoding/rpt_presupuesto_segun_asignado.jrxml=UTF-8
