@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rpt_presupuesto_x_clasificacion" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b8ed244d-7658-45ef-8fb3-af4df9124c0d">
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="postgresql_adapter"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ovh_presupuesto"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="ireport.jasperserver.url" value="http://100.192.1.135:8082/jasperserver/"/>
+	<property name="ireport.jasperserver.user" value="jasperadmin"/>
+	<property name="ireport.jasperserver.report.resource" value="/Pruebas/Reports/rpt_presupuesto_por_clasificacion_files/main_jrxml"/>
+	<property name="ireport.jasperserver.reportUnit" value="/Pruebas/Reports/rpt_presupuesto_por_clasificacion"/>
 	<parameter name="cod_mes" class="java.lang.Integer"/>
 	<parameter name="cod_clasificacion" class="java.lang.Integer"/>
 	<queryString>
@@ -68,25 +72,25 @@
 				<text><![CDATA[PARÁMETROS:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="17" y="30" width="70" height="15" uuid="759a7cc7-43c4-40ce-92e4-24cdb39ce72f"/>
+				<reportElement x="17" y="30" width="83" height="15" uuid="759a7cc7-43c4-40ce-92e4-24cdb39ce72f"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Mes:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="17" y="50" width="70" height="15" uuid="5e42152e-98f3-45df-bb20-af1dd6e43c76"/>
+				<reportElement x="17" y="50" width="83" height="15" uuid="5e42152e-98f3-45df-bb20-af1dd6e43c76"/>
 				<textElement textAlignment="Right">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Clasificación:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="89" y="31" width="205" height="14" uuid="e246021b-da37-4281-9a72-d2d84d93e3da"/>
+				<reportElement x="115" y="30" width="205" height="14" uuid="e246021b-da37-4281-9a72-d2d84d93e3da"/>
 				<textFieldExpression><![CDATA[( $P{cod_mes}.equals(0) ? "TODOS": $F{mes})]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="89" y="50" width="205" height="14" uuid="c7032454-28bf-4f9f-9068-f3edee706a74"/>
+				<reportElement x="114" y="49" width="205" height="14" uuid="c7032454-28bf-4f9f-9068-f3edee706a74"/>
 				<textFieldExpression><![CDATA[( $P{cod_clasificacion}.equals(0) ? "TODOS": $F{clasificacion})]]></textFieldExpression>
 			</textField>
 		</band>
